@@ -1,0 +1,27 @@
+{
+  "name": "ads-online",
+  "description": "Ads online project",
+  "main": "index.html",
+  "authors": [
+    "Antonio Matera"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "ads",
+    "online"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "font-awesome": "~4.5.0",
+    "jquery": "~2.1.4"
+  }
+}

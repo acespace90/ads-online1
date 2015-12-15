@@ -1,0 +1,46 @@
+// _base.scss
+
+@include font-face(OpenSans, fonts/OpenSans-Regular-webfont);
+@include font-face(fontawesome-webfont, vendor/font-awesome/fontawesome-webfont);
+
+*,
+*:after,
+*:before {
+  @include box-sizing(border-box);
+}
+
+body{
+	background: $bg-color;
+	font-family: $base-font-family;
+	font-size: $base-font-size + px;
+
+}
+
+.container{
+	width: 100%;
+	max-width: $main-width;
+	@include center-block;
+}
+
+/* --------------------
+	Header
+-------------------- */
+
+
+.header {
+    background: #fff;
+	padding: 10px;
+
+    @include element('logo__text') {
+        color: $primary-green-color;
+		@include rem(24);
+		font-weight: bold;
+		text-decoration: none;
+
+		@include modifier('xmas'){
+			color: red;
+		}
+
+    }
+
+}

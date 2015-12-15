@@ -1,0 +1,49 @@
+// _mixin.scss
+
+@import '_variables.scss';
+
+// Border Radius
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	border-radius: $radius;
+}
+
+// Px to Rem
+@function calculateRem($size) {
+  $remSize: $size / $base-font-size;
+  @return #{$remSize}rem;
+}
+
+@mixin rem($size) {
+  font-size: $size + px; //Fallback in px
+  font-size: calculateRem($size);
+}
+
+// Center Block
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Box Sizing
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model; 
+     -moz-box-sizing: $box-model; 
+          box-sizing: $box-model;
+}
+
+// BEM
+@mixin element($element) {
+    &__#{$element} {
+        @content;
+    }
+}
+
+@mixin modifier($modifier) {
+    &--#{$modifier} {
+        @content;
+    }
+}

@@ -1,7 +1,10 @@
 // _base.scss
 
-@include font-face(OpenSans, fonts/OpenSans-Regular-webfont);
-@include font-face(fontawesome-webfont, vendor/font-awesome/fontawesome-webfont);
+/*------------------------------------*\
+    BASE
+\*------------------------------------*/
+
+@include font-face(OpenSans, '../../fonts/OpenSans/OpenSans-Regular-webfont');
 
 *,
 *:after,
@@ -9,11 +12,28 @@
   @include box-sizing(border-box);
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+}
+
+html {
+   	font-size: $base-font-size + px;
+    background: $bg-color;
+    color: $primary-color;
+    overflow-y: scroll; 
+    min-height: 100%; 
+}
+
 body{
 	background: $bg-color;
 	font-family: $base-font-family;
-	font-size: $base-font-size + px;
-
+	@include rem(16);
 }
 
 .container{
@@ -22,25 +42,144 @@ body{
 	@include center-block;
 }
 
-/* --------------------
-	Header
--------------------- */
+/*------------------------------------*\
+    HEADER
+\*------------------------------------*/
 
 
 .header {
     background: #fff;
 	padding: 10px;
 
-    @include element('logo__text') {
-        color: $primary-green-color;
-		@include rem(24);
+    @include element('logo') {
+        @include rem(24);
 		font-weight: bold;
 		text-decoration: none;
+		color: $primary-green-color;
+		text-transform: uppercase;
+    }
+}
 
-		@include modifier('xmas'){
-			color: red;
+/*------------------------------------*\
+    HERO
+\*------------------------------------*/
+
+.hero{
+	min-height: 300px;
+	background: url('../img/hero.jpg') center center / cover no-repeat;
+	padding-top: 40px;
+
+	@include element('title'){
+		color: $secondary-color;
+		text-align: center;
+		@include rem(28);
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+
+	@include element('subtitle'){
+		@extend .hero__title;
+		@include rem(18);
+		margin-top: 10px;
+		font-weight: normal;
+		text-transform: none;
+	}
+
+}
+
+.searchbox{
+	background: rgba(0,0,0,.3);
+	padding: 5px;
+	margin-top: 20px;
+	width: 100%;
+	@include center-block;
+	max-width: 800px;
+	
+	@include element('field'){
+		padding: 5px;
+	}
+	
+	@include element('button'){
+		@include main-button;
+		
+		@include modifier('green'){
+			background-color: $primary-green-color;
+			color: $secondary-color;
+
+			&:hover{
+				color: $secondary-color;
+				@include transition(background-color .5s ease);
+				background-color: darken($primary-green-color, 5%);
+			}
 		}
 
-    }
+	}
+
+}
+
+/*------------------------------------*\
+    MAIN
+\*------------------------------------*/
+
+.main{
+	padding-top: 30px;
+}
+
+.category{
+	
+	background: #fff;
+	border: 1px solid #ddd;
+	padding: 20px;
+	margin-bottom: 20px;
+	@include border-radius(10px);
+
+	@include element('icon'){
+		text-align: center;
+		color: $icon-color;
+		padding-bottom: 10px;
+
+		@include modifier('big'){
+			@include rem(50);
+		}
+
+		&:hover{
+			@include transition(color .5s ease);
+			color: $primary-green-color;
+		}
+
+	}
+
+	@include element('name'){
+		color: $primary-color;
+		font-weight: bold;
+		padding-bottom: 10px;
+		text-align: center;
+		@include rem(17);
+
+	}
+
+	@include element('counter'){
+		@extend .category__name;
+		font-weight: normal;
+		@include rem(14);
+
+	}
+
+}
+
+/*------------------------------------*\
+    FEATURED
+\*------------------------------------*/
+
+.featured{
+	border-bottom: 1px solid $border-color;
+	width: 100%;
+	margin-bottom: 10px;
+
+	@include element('title'){
+		@include rem(20);
+		color: $primary-green-color;
+		font-weight: bold;
+	}
 
 }

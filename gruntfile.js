@@ -27,9 +27,7 @@ module.exports = function(grunt) {
 		cssmin: {
 			clean: {
 				files: {
-				  'build/css/app.min.css': [
-				  	'bower_components/bootstrap/dist/css/bootstrap.css',
-				  	'build/css/app.min.css']
+				  'build/css/app.min.css': 'build/css/app.min.css'
 				}
 			}
 		},
@@ -60,6 +58,18 @@ module.exports = function(grunt) {
 			}
 		},
 
+		// IMAGE OPTIM	
+		imagemin: {                          // Task 
+		    dynamic: {                         // Another target 
+		      files: [{
+		        expand: true,                  // Enable dynamic expansion 
+		        cwd: 'source/img/',                   // Src matches are relative to this path 
+		        src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match 
+		        dest: 'build/img/'                  // Destination path prefix 
+		      }]
+		    }
+		  },
+
 		// BOWER COPY
 		bowercopy: {
 		  options: {
@@ -79,16 +89,23 @@ module.exports = function(grunt) {
 		// WATCH
 		watch: {
 			sass: {
-				files: [ 'source/scss/*/*.scss' ],
+				files: [ 'source/scss/*/*.scss', 'source/scss/*.scss' ],
 				tasks: [ 'sass', 'autoprefixer']
 			},
 			html: {
 	            files: ['source/*.html'],
 	            tasks: ['copy'],
 		            options: {
-	                livereload: true
-	            }
-	        }
+	                	livereload: true
+	            	}
+            },
+	        img: {
+				files: [ 'source/img/*' ],
+				tasks: [ 'imagemin'],
+				options: {
+                	livereload: true
+            	}
+			}
 		},
 
 		// BROWSER SYNC
@@ -112,11 +129,12 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-imagemin');
 	grunt.loadNpmTasks('grunt-bowercopy');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-browser-sync');
 
-	grunt.registerTask('default', ['sass', 'autoprefixer', 'uglify', 'bowercopy' ,'copy']);
+	grunt.registerTask('default', ['sass', 'autoprefixer', 'uglify', 'imagemin' ,'bowercopy' ,'copy']);
 	grunt.registerTask('start', ['copy', 'browserSync', 'watch']);
 
 };

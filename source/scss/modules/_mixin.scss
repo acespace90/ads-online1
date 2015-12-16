@@ -1,5 +1,9 @@
 // _mixin.scss
 
+/*------------------------------------*\
+    MIXINS
+\*------------------------------------*/
+
 @import '_variables.scss';
 
 // Border Radius
@@ -47,3 +51,18 @@
         @content;
     }
 }
+
+// TRANSITION
+@mixin transition($args) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+// APPAREANCE
+@mixin appareance{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+} 

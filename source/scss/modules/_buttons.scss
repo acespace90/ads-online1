@@ -10,5 +10,5 @@
 	width: 100%;
 	@include border-radius(5px);
 	padding: 10px 16px;
-	height: 46px;
+	min-height: 46px;
 }

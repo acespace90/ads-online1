@@ -453,6 +453,9 @@ th {
     FONTS
 \*------------------------------------*/
 /*------------------------------------*\
+    MEDIA
+\*------------------------------------*/
+/*------------------------------------*\
     BASE
 \*------------------------------------*/
 @font-face {
@@ -506,12 +509,17 @@ body {
   padding: 10px;
 }
 .header__logo {
-  font-size: 24px;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-decoration: none;
-  color: #58b325;
-  text-transform: uppercase;
+  float: left;
+}
+.header__logo svg {
+  display: inline-block;
+  height: 40px;
+}
+@media screen and (max-width: 768px) {
+  .header__logo {
+    float: none;
+    text-align: center;
+  }
 }
 
 /*------------------------------------*\
@@ -529,11 +537,17 @@ body {
   font-size: 1.75rem;
   font-weight: bold;
   text-transform: uppercase;
+  text-shadow: 1px 1px #000;
+}
+@media screen and (max-width: 480px) {
+  .hero__title, .hero__subtitle {
+    font-size: 20px;
+    font-size: 1.25rem;
+  }
 }
 .hero__subtitle {
   font-size: 18px;
   font-size: 1.125rem;
-  margin-top: 10px;
   font-weight: normal;
   text-transform: none;
 }
@@ -551,17 +565,17 @@ body {
 .searchbox__field {
   padding: 5px;
 }
-.searchbox__button {
+.searchbox__button, .signup__button button {
   width: 100%;
   border-radius: 5px;
   padding: 10px 16px;
-  height: 46px;
+  min-height: 46px;
 }
-.searchbox__button--green {
+.searchbox__button--green, .signup__button button {
   background-color: #58b325;
   color: #fff;
 }
-.searchbox__button--green:hover {
+.searchbox__button--green:hover, .signup__button button:hover {
   color: #fff;
   -webkit-transition: background-color 0.5s ease;
   transition: background-color 0.5s ease;
@@ -575,7 +589,7 @@ body {
   padding-top: 30px;
 }
 
-.category {
+.category, .signup, .featured__prod {
   background: #fff;
   border: 1px solid #ddd;
   padding: 20px;
@@ -596,7 +610,7 @@ body {
   transition: color 0.5s ease;
   color: #58b325;
 }
-.category__name, .category__counter {
+.category__name, .category__counter, .featured__prod__prod-name {
   color: #777;
   font-weight: bold;
   padding-bottom: 10px;
@@ -611,16 +625,79 @@ body {
 }
 
 /*------------------------------------*\
+    SIGNUP
+\*------------------------------------*/
+.signup__button button {
+  font-weight: bold;
+  font-size: 20px;
+  font-size: 1.25rem;
+}
+
+/*------------------------------------*\
     FEATURED
 \*------------------------------------*/
 .featured {
-  border-bottom: 1px solid #ddd;
   width: 100%;
-  margin-bottom: 10px;
 }
-.featured__title {
+.featured__title, .signup__title {
   font-size: 20px;
   font-size: 1.25rem;
   color: #58b325;
   font-weight: bold;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+.featured__prod__prod-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.featured__prod__prod-image__img-prop {
+  height: 150px;
+}
+.featured__prod--sponsorized {
+  background: rgba(255, 247, 197, 0.6);
+}
+.featured__prod__prod-name {
+  text-align: left;
+  margin-top: 10px;
+}
+.featured__prod__prod-details {
+  font-size: 13px;
+  font-size: 0.8125rem;
+  color: #b7b7b7;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+.featured__prod__prod-details .nav-details {
+  margin: 0;
+  padding: 0;
+}
+.featured__prod__prod-details .nav-details__item {
+  list-style-type: none;
+  display: inline-block;
+  margin-bottom: 5px;
+  width: 100%;
+}
+.featured__prod__prod-price span {
+  float: left;
+  font-size: 24px;
+  font-size: 1.5rem;
+  color: #777;
+  font-weight: bold;
+  text-align: left;
+  padding-top: 10px;
+  color: #444444;
+}
+.featured__prod__prod-price .nav-right-btn {
+  margin: 0;
+  padding: 0;
+  float: right;
+  padding-top: 10px;
+}
+.featured__prod__prod-price .nav-right-btn__item {
+  display: inline;
 }

@@ -4,6 +4,7 @@
 /*------------------------------------*\
     #RESET
 \*------------------------------------*/
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,300);
 body,
 h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
@@ -227,6 +228,7 @@ figure {
  * Address differences between Firefox and other browsers.
  */
 hr {
+  -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
 }
@@ -367,6 +369,8 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
   /* 2 */
   box-sizing: content-box;
 }
@@ -458,13 +462,11 @@ th {
 /*------------------------------------*\
     BASE
 \*------------------------------------*/
-@font-face {
-  font-family: "OpenSans";
-  src: url("../../fonts/OpenSans/OpenSans-Regular-webfont.eot?") format("eot"), url("../../fonts/OpenSans/OpenSans-Regular-webfont.woff2") format("woff2"), url("../../fonts/OpenSans/OpenSans-Regular-webfont.woff") format("woff"), url("../../fonts/OpenSans/OpenSans-Regular-webfont.ttf") format("truetype"), url('../../fonts/OpenSans/OpenSans-Regular-webfont.svg#str-replace(OpenSans, " ", "_")') format("svg");
-}
 *,
 *:after,
 *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -488,7 +490,7 @@ html {
 
 body {
   background: #eee;
-  font-family: "OpenSans";
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-size: 1rem;
 }
@@ -567,6 +569,9 @@ body {
 }
 .searchbox__button, .signup__button button {
   width: 100%;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
   border-radius: 5px;
   padding: 10px 16px;
   min-height: 46px;
@@ -578,6 +583,9 @@ body {
 .searchbox__button--green:hover, .signup__button button:hover {
   color: #fff;
   -webkit-transition: background-color 0.5s ease;
+  -moz-transition: background-color 0.5s ease;
+  -ms-transition: background-color 0.5s ease;
+  -o-transition: background-color 0.5s ease;
   transition: background-color 0.5s ease;
   background-color: #4e9e21;
 }
@@ -589,11 +597,14 @@ body {
   padding-top: 30px;
 }
 
-.category, .signup, .featured__prod {
+.category, .signup, .trends, .featured__prod {
   background: #fff;
   border: 1px solid #ddd;
   padding: 20px;
   margin-bottom: 20px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
   border-radius: 10px;
 }
 .category__icon {
@@ -607,6 +618,9 @@ body {
 }
 .category__icon:hover {
   -webkit-transition: color 0.5s ease;
+  -moz-transition: color 0.5s ease;
+  -ms-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
   transition: color 0.5s ease;
   color: #58b325;
 }
@@ -639,7 +653,7 @@ body {
 .featured {
   width: 100%;
 }
-.featured__title, .signup__title {
+.featured__title, .signup__title, .trends__title {
   font-size: 20px;
   font-size: 1.25rem;
   color: #58b325;
@@ -701,3 +715,23 @@ body {
 .featured__prod__prod-price .nav-right-btn__item {
   display: inline;
 }
+
+/*------------------------------------*\
+    TRENDS
+\*------------------------------------*/
+.trends__list {
+  width: 100%;
+}
+.trends__list__item {
+  list-style-type: none;
+  color: #777;
+  padding-bottom: 10px;
+}
+.trends__list__item:last-child {
+  padding-bottom: 0;
+}
+.trends__list__item a:hover {
+  color: #444444;
+}
+
+/*# sourceMappingURL=app.css.map */

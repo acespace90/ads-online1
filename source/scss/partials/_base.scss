@@ -4,8 +4,6 @@
     BASE
 \*------------------------------------*/
 
-@include font-face(OpenSans, '../../fonts/OpenSans/OpenSans-Regular-webfont');
-
 *,
 *:after,
 *:before {
@@ -32,7 +30,7 @@ html {
 
 body{
 	background: $bg-color;
-	font-family: $base-font-family;
+	font-family: $primary-font;
 	@include rem(16);
 }
 
@@ -286,6 +284,41 @@ body{
 					display: inline;
 				}
 
+			}
+
+		}
+
+	}
+
+}
+
+/*------------------------------------*\
+    TRENDS
+\*------------------------------------*/
+
+.trends{
+	@extend .signup;
+	
+	@include element('title'){
+		@extend .signup__title;
+	}
+
+	@include element('list'){
+		width: 100%;
+
+		@include element('item'){
+			list-style-type: none;
+			color: $primary-color;
+			padding-bottom: 10px;
+
+			&:last-child{
+				padding-bottom: 0;
+			}
+
+			a{
+				&:hover{
+					color: darken($primary-color, 20%);
+				}
 			}
 
 		}

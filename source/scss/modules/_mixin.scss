@@ -39,19 +39,6 @@
           box-sizing: $box-model;
 }
 
-// BEM
-@mixin element($element) {
-    &__#{$element} {
-        @content;
-    }
-}
-
-@mixin modifier($modifier) {
-    &--#{$modifier} {
-        @content;
-    }
-}
-
 // TRANSITION
 @mixin transition($args) {
   -webkit-transition: $args;

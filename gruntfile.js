@@ -1,4 +1,5 @@
 module.exports = function(grunt) {
+
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -98,7 +99,7 @@ module.exports = function(grunt) {
       }
     },
 
-    // Bowercopy
+    // Bowercopy to build folder
     bowercopy: {
       options: {
         srcPrefix: 'bower_components'
@@ -112,10 +113,11 @@ module.exports = function(grunt) {
           'fonts/font-awesome/css/': 'font-awesome/css',
           'bootstrap/js/bootstrap.min.js': 'bootstrap/dist/js/bootstrap.min.js',
           'bootstrap/css/bootstrap.min.css': 'bootstrap/dist/css/bootstrap.min.css',
-          'jquery/jquery.min.js' : 'jquery/dist/jquery.min.js'
+          'jquery/jquery.min.js' : 'jquery/dist/jquery.min.js',
+          'snapsvg/snap.svg-min.js' : 'Snap.svg/dist/snap.svg-min.js'
         }
       }
-    },  
+    },
 
     // Imagemin
     imagemin: {
@@ -141,6 +143,18 @@ module.exports = function(grunt) {
           src: ['*.jpg'],
           dest: 'build/img/',
           ext: '.jpg'
+        }]
+      },
+      svg: {
+        options: {
+          progressive: true
+        },
+        files: [{
+          expand: true,
+          cwd: 'source/img',
+          src: ['*.svg'],
+          dest: 'build/img/',
+          ext: '.svg'
         }]
       }
     },

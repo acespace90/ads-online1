@@ -189,5 +189,5 @@ module.exports = function(grunt) {
   grunt.registerTask('dev', ['autoprefixer:dev', 'sass:dev', 'htmlmin:dev', 'concat', 'imagemin', 'bowercopy', 'browserSync', 'watch']);
 
   // Production task
-  grunt.registerTask('prod', ['autoprefixer:dev', 'sass:dist','htmlmin:dist', 'concat', 'imagemin', 'uglify', 'bowercopy']);
+  grunt.registerTask('prod', ['autoprefixer:dev', 'sass:dist','htmlmin:dist', 'concat', 'imagemin', 'bowercopy', 'uglify']);
 };
